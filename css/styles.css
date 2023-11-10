@@ -1,3 +1,6 @@
-.hidden {
-    display: none;
+#click {
+    color: green;
+    position: relative;
+    top: 20px;
+    left: 40px;
 }
