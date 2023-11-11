@@ -1,6 +1,7 @@
 function setToVariable() {
 
     const click = document.getElementById("click");
+    const click2 = document.getElementById("click2");
     const h1 = document.createElement("h1");
     const p = document.createElement("p");
     const form = document.createElement("form");
@@ -11,6 +12,13 @@ function setToVariable() {
     const label3 = document.createElement("label");
     const input3 = document.createElement("input");
     const button = document.createElement("button");
+    const div = document.createElement("div");
+    const p1 = document.createElement("p");
+    const span1 = document.createElement("span");
+    const p2 = document.createElement("p");
+    const span2 = document.createElement("span");
+    const p3 = document.createElement("p");
+    const span3 = document.createElement("span");
 
 
     h1.append("Favorite things!");
@@ -34,7 +42,8 @@ function setToVariable() {
     input3.setAttribute("type", "text");
     input3.setAttribute("name", "book");
 
-    button.setAttribute("type", "button");
+    button.setAttribute("type", "submit");
+    button.setAttribute("id", "click2");
     button.append("Submit");
 
     form.append(label1, input1, document.createElement("br"), label2, input2, document.createElement("br"), label3, input3, document.createElement("br"), button);
@@ -42,7 +51,40 @@ function setToVariable() {
     document.body.append(h1);
     document.body.append(p);
     document.body.append(form);
+    document.body.append(div);
 
+
+    p1.append("Your favorite food:");
+    span1.setAttribute("id", "thing1");
+    p1.append(span1);
+
+    p2.append("Your favorite movie:");
+    span2.setAttribute("id", "thing2");
+    p2.append(span2);
+
+    p3.append("Your favorite book:");
+    span3.setAttribute("id", "thing3");
+    p3.append(span3);
+
+    div.setAttribute("id", "result");
+    div.setAttribute("class", "hidden");
+    div.prepend(p1, span1, p2, span2, p3, span3);
+
+}
+
+function formToResult() {
+    click2.addEventListener("click", function (event) {
+        event.preventDefault();
+        const food = document.getElementById("food").value;
+        const movie = document.getElementById("movie").value;
+        const book = document.getElementById("book").value;
+
+        document.querySelector("span#thing1").innerText = food;
+        document.querySelector("span#thing2").innerText = movie;
+        document.querySelector("span#thing3").innerText = book;
+
+        document.getElementById("result").removeAttribute("class");
+    });
 }
 
 
@@ -53,5 +95,6 @@ window.addEventListener("load", function () {
         event.preventDefault();
         setToVariable();
         document.getElementById("click").setAttribute("class", "hidden");
-    })
+        formToResult();
+    });
 });
