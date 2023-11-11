@@ -86,6 +86,8 @@ function formToResult() {
         document.querySelector("span#thing2").innerText = movie;
         document.querySelector("span#thing3").innerText = book;
 
+        const array = [food, movie, book];
+
         document.getElementById("result").removeAttribute("class");
     });
 }
