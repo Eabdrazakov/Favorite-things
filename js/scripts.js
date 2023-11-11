@@ -57,18 +57,21 @@ function setToVariable() {
     p1.append("Your favorite food:");
     span1.setAttribute("id", "thing1");
     p1.append(span1);
+    p1.style.display = "inline";
 
     p2.append("Your favorite movie:");
     span2.setAttribute("id", "thing2");
     p2.append(span2);
+    p2.style.display = "inline";
 
     p3.append("Your favorite book:");
     span3.setAttribute("id", "thing3");
     p3.append(span3);
+    p3.style.display = "inline";
 
     div.setAttribute("id", "result");
     div.setAttribute("class", "hidden");
-    div.prepend(p1, span1, p2, span2, p3, span3);
+    div.prepend(p1, span1, document.createElement("br"), p2, span2, document.createElement("br"), p3, span3);
 
 }
 
